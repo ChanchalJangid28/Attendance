@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:attendence_app/Screens/Signup/Blocs/signupblocs.dart';
 import 'package:attendence_app/Screens/Signup/Blocs/signupstates.dart';
 import 'package:attendence_app/Screens/Signup/Controllers/signupcontroller.dart';
@@ -29,7 +31,7 @@ class _SignupState extends State<Signup> {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const Login()));
             } else if (state is SignUpErrorStates) {
-              return Uihelper.CustomAlertBox(
+               Uihelper.CustomAlertBox(
                   state.errormsg.toString(), context);
             }
           },
@@ -95,10 +97,10 @@ class _SignupState extends State<Signup> {
                             height: 40,
                             width: double.infinity,
                             child: Uihelper.CustomElevatedButton(() {
-                              context.read<SignUpBloc>().signup(
-                                  emailController.text.toString(),
-                                  passwordController.text.toString(),
-                                  nameController.text.toString());
+                              BlocProvider.of<SignUpBloc>(context).signup(emailController.text.toString(), passwordController.text.toString(), nameController.text.toString());
+                              log(emailController.text.toString());
+                              log(passwordController.text.toString());
+                              log(nameController.text.toString());
                               //  SignUpController.signup(emailController.text.toString(), passwordController.text.toString(), nameController.text.toString(), context);
                             }, "Sign up", const Color(0xFF3A0CA3),
                                 Colors.white)),
