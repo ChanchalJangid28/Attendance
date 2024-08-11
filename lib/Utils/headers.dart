@@ -1,7 +1,5 @@
 class Headers{
-  static headers(){
-    Map<String,String>appheaders={
-      "Content-Type":"application/json"
-    };
-  }
+  static Map<String,String>headers={
+    'Content-Type':'application/json'
+  };
 }

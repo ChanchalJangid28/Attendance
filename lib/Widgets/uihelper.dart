@@ -39,4 +39,29 @@ class Uihelper{
       );
     });
   }
+  
+  static CustomIconButton(VoidCallback callback,String text,IconData iconData,Color backgroudColor,Color foregroundColor){
+    return ElevatedButton.icon(onPressed: (){
+      callback();
+    },icon: Icon(iconData), label: Text(text),style: ButtonStyle(
+      backgroundColor: MaterialStatePropertyAll<Color>(backgroudColor),
+      foregroundColor: MaterialStatePropertyAll<Color>(foregroundColor),
+    ),);
+  }
+
+  static CustomAlertBoxWithTime(String text,String time,BuildContext context) {
+    return showDialog(context: context, builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text(text),
+        content: Text(time),
+        actions: [
+          TextButton(onPressed: () {
+            Navigator.pop(context);
+          }, child: Text("ok"))
+        ],
+      );
+    });
+  }
+
+
 }

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:attendence_app/Screens/Signup/signup.dart';
+import 'package:attendence_app/Screens/Splash/Controllers/splashcontroller.dart';
 import 'package:flutter/material.dart';
 
 class Splashscreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class _SplashscreenState extends State<Splashscreen> {
   @override
   void initState() {
     Timer(Duration(seconds: 3),(){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Signup()));
+      SplashController.checkUser(context);
     });
     // TODO: implement initState
     super.initState();
@@ -26,7 +27,7 @@ class _SplashscreenState extends State<Splashscreen> {
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color(0xFF3A0CA3), Color(0xFF240046)],
+                colors: [Color(0xFF3E3A84),Color(0xFF26235C)],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),

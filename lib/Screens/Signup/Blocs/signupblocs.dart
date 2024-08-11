@@ -23,8 +23,8 @@ class SignUpBloc extends Bloc<SignUpEvents, SignUpStates> {
       log(responsedata.toString());
       emit(SignUpLoadedStates(signUpModel: signUpModel));
     } else {
-      // Map<String,dynamic>errors=jsonDecode(response.body);
-      // String errormsg=errors['message'];
+      Map<String,dynamic>errors=jsonDecode(response.body);
+      String errormsg=errors['message'];
       emit(SignUpErrorStates(errormsg: response.statusCode.toString()));
     }
   }

@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:attendence_app/Screens/Signup/Blocs/signupblocs.dart';
 import 'package:attendence_app/Screens/Signup/Blocs/signupstates.dart';
 import 'package:attendence_app/Screens/Signup/Controllers/signupcontroller.dart';
-import 'package:attendence_app/Screens/login.dart';
+import 'package:attendence_app/Screens/Login/login.dart';
 import 'package:attendence_app/Widgets/uihelper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,8 +42,11 @@ class _SignupState extends State<Signup> {
               );
             }
             return Container(
+              height: double.infinity,
+              width: double.infinity,
               decoration: const BoxDecoration(
-                color: Color(0xFF240046),
+                color: Color(0xFF26235C),
+
               ),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -91,18 +94,20 @@ class _SignupState extends State<Signup> {
                           Colors.white,
                           true,
                           false),
+                      SizedBox(height: 20,),
                       Padding(
                         padding: const EdgeInsets.all(0.0),
                         child: SizedBox(
                             height: 40,
                             width: double.infinity,
                             child: Uihelper.CustomElevatedButton(() {
-                              BlocProvider.of<SignUpBloc>(context).signup(emailController.text.toString(), passwordController.text.toString(), nameController.text.toString());
-                              log(emailController.text.toString());
-                              log(passwordController.text.toString());
-                              log(nameController.text.toString());
-                              //  SignUpController.signup(emailController.text.toString(), passwordController.text.toString(), nameController.text.toString(), context);
-                            }, "Sign up", const Color(0xFF3A0CA3),
+                              // BlocProvider.of<SignUpBloc>(context).signup(emailController.text.toString(), passwordController.text.toString(), nameController.text.toString());
+                              // log(emailController.text.toString());
+                              // log(passwordController.text.toString());
+                              // log(nameController.text.toString());
+
+                               SignUpController.signup(emailController.text.toString(), passwordController.text.toString(), nameController.text.toString(), context);
+                            }, "Sign up", Colors.blue,
                                 Colors.white)),
                       ),
                       const SizedBox(
@@ -150,18 +155,23 @@ class _SignupState extends State<Signup> {
                       const SizedBox(
                         height: 20,
                       ),
-                      const Text(
-                        "Already have an account?",
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      const InkWell(
-                        child: Text(
-                          "Login",
-                          style: TextStyle(
-                              color: Colors.blue,
-                              decoration: TextDecoration.underline),
-                        ),
-                      )
+                     // const Text(
+                      //   "Already have an account?",
+                      //   style: TextStyle(color: Colors.grey),
+                      // ),
+                      // const InkWell(
+                      //   child: Text(
+                      //     "Login",
+                      //     style: TextStyle(
+                      //         color: Colors.blue,
+                      //         decoration: TextDecoration.underline),
+                      //   ),
+                      // ),
+
+                      TextButton(onPressed: (){
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Login()));
+
+                      }, child: Text("Already have an account?"))
                     ],
                   ),
                 ),
