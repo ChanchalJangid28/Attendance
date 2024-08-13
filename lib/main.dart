@@ -1,4 +1,5 @@
 import 'package:attendence_app/Screens/Home/Profile/Profilepage/profileBlocs/profilebloc.dart';
+import 'package:attendence_app/Screens/Home/Profile/leavespage/leaveBlocs/leaveBloc.dart';
 import 'package:attendence_app/Screens/Login/Blocs/loginbloc.dart';
 import 'package:attendence_app/Screens/Signup/Blocs/signupblocs.dart';
 import 'package:attendence_app/Screens/Splash/splashscreen.dart';
@@ -33,7 +34,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_)=>LoginBloc()),
         BlocProvider(create: (_)=>InBloc()),
         BlocProvider(create: (_)=>OutBloc()),
-        BlocProvider(create: (_)=>ProfileBloc())
+        BlocProvider(create: (_)=>ProfileBloc()),
+        BlocProvider(create: (_)=>LeaveBloc())
       ],
       child: MaterialApp(
         title: 'Attendance App',

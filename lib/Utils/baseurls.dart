@@ -8,4 +8,6 @@ class BaseUrls{
   static const String MarkOut="https://attendance-module-roan.vercel.app/attendance/outtime";
 
   static const String Profile="https://attendance-module-roan.vercel.app/attendance/userprofile";
+
+  static const String leave="https://attendance-module-roan.vercel.app/attendance/leave";
 }

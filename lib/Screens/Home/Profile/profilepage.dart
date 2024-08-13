@@ -3,10 +3,13 @@ import 'dart:developer';
 import 'package:attendence_app/Screens/Home/Profile/Profilepage/profileBlocs/profilebloc.dart';
 import 'package:attendence_app/Screens/Home/Profile/Profilepage/profileBlocs/profilestates.dart';
 import 'package:attendence_app/Screens/Home/Profile/Profilepage/profileController/ProfileController.dart';
+import 'package:attendence_app/Screens/Home/Profile/leavespage/leaveController/leaveController.dart';
 import 'package:attendence_app/Widgets/uihelper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'leavespage/leavepage.dart';
 
 class Profilepage extends StatefulWidget {
   @override
@@ -155,7 +158,9 @@ class _ProfilepageState extends State<Profilepage> {
                       ),
                       trailing:
                           Icon(Icons.arrow_forward_ios, color: Colors.white),
-                      onTap: () {},
+                      onTap: ()=>{
+                      Navigator.push(context,MaterialPageRoute(builder: (context)=>Leavepage()) )
+                      },
                     ),
                     SizedBox(
                       height: 50,
